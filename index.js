@@ -249,7 +249,7 @@ class QuickScan extends NmapScan {
 }
 class OsAndPortScan extends NmapScan {
   constructor(range) {
-    super(range, '-O');
+    super(range, '-F -sU -sT -T5 --min-parallelism 5 --port-ratio 0.003');
   }
 }
 
