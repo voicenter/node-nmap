@@ -251,9 +251,13 @@ class QuickScan extends NmapScan {
     super(range, '-sP');
   }
 }
+
+
 class OsAndPortScan extends NmapScan {
-  constructor(range) {
-    super(range, '-F -sU -sT -T5 --min-parallelism 5 --port-ratio 0.003');
+  constructor(range,nmapArgs) {
+    if(!nmapArgs) nmapArgs = '-O -F -sU -sT -T5 --min-parallelism 5 --port-ratio 0.001'
+    console.log('nmap',nmapArgs , range  )
+    super(range, nmapArgs);
   }
 }
 
