@@ -64,7 +64,7 @@ function convertRawJsonToScanResults(xmlInput) {
       const portList = host.ports[0].port
 
       const openPorts = portList.filter((port) => {
-        return (port.state[0].$.state === 'open')
+           return (port.state[0].$.state.startsWith('open'))
       })
 
       newHost.openPorts = openPorts.map((portItem) => {
